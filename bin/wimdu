@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# This is a stub to make the feature spec pass. You probably don't
+# want to build this in shell script.
+
+case $1 in
+    new)
+        echo "Starting with new property ABC1DEF2."
+        echo
+        echo -n "Title: "
+        read title
+        echo -n "Address: "
+        read address
+        ;;
+    "continue")
+        echo "Continuing with property $2."
+        echo
+        echo -n "Address:"
+        read address
+        ;;
+esac

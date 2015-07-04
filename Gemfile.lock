@@ -1,0 +1,57 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
+    coderay (1.1.0)
+    columnize (0.9.0)
+    debugger-linecache (1.2.0)
+    diff-lcs (1.2.5)
+    hiredis (0.6.0)
+    method_source (0.8.2)
+    msgpack (0.5.12)
+    nido (0.0.1)
+    ohm (2.2.1)
+      msgpack (~> 0.5.0)
+      nido
+      redic
+      stal
+    ohm-contrib (2.2.0)
+      ohm (~> 2.2)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
+    redic (1.5.0)
+      hiredis
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.1)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
+    slop (3.6.0)
+    stal (0.1.0)
+      redic
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ohm
+  ohm-contrib
+  pry
+  pry-byebug
+  rspec
