@@ -24,7 +24,7 @@ module Wimdu
 
         @property.save
 
-        say "All done!  #{@property.inspect}"
+        self
       end
 
       # Title
@@ -50,15 +50,13 @@ module Wimdu
 
       # Nightly rate
       def ask_for_nightly_rate
-        @property.nightly_rate = ask("Nightly rate (EUR): ", Float) do |q|
-        end
+        @property.nightly_rate = ask("Nightly rate (EUR): ", Float)
         say "Okay, nightly rate is #{@property.nightly_rate} EUR."
       end
 
       # Max Guests
       def ask_for_max_guests
-        @property.max_guests = ask("Max guests: ", Integer) do |q|
-        end
+        @property.max_guests = ask("Max guests: ", Integer)
         say "Okay, max guests is #{@property.max_guests}."
       end
 

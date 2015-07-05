@@ -13,7 +13,7 @@ RSpec.describe Wimdu::Commands::ChangeProperty do
   end
 
   describe "#call" do
-    it "asks all the questions" do
+    it "asks all the questions, saves the record and responds with itself" do
       expect(instance).to receive(:ask_for_title)
       expect(instance).to receive(:ask_for_type)
       expect(instance).to receive(:ask_for_address)
@@ -21,7 +21,9 @@ RSpec.describe Wimdu::Commands::ChangeProperty do
       expect(instance).to receive(:ask_for_max_guests)
       expect(instance).to receive(:ask_for_email)
       expect(instance).to receive(:ask_for_phone_number)
-      instance.call
+      expect(property).to receive(:save)
+      response = instance.call
+      expect(response).to eq instance
     end
   end
 
@@ -50,7 +52,7 @@ RSpec.describe Wimdu::Commands::ChangeProperty do
     end
 
     describe "#ask_for_address" do
-      let(:response) { "My amazing place" }
+      let(:response) { "My amazing address" }
       it "responds with the address" do
         expect(output.gets).to match "Okay, address is #{response}"
       end
