@@ -11,7 +11,7 @@ module Wimdu
       def call
         say "Starting with new property #{@property.slug}"
 
-        ChangeProperty.new(@property).call
+        ChangeProperty.call(@property)
 
         say "Property #{property.slug} was created."
       end
