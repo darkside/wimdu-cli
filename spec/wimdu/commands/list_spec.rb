@@ -1,7 +1,49 @@
 require 'spec_helper'
 
 RSpec.describe Wimdu::Commands::List do
-  describe "#call" do
-    pending
+
+  include_context "mocked terminal"
+
+  describe "Class Methods" do
+
+  end
+
+  describe "Instance Methods" do
+
+    let(:instance) { described_class.new }
+
+    before do
+      Ohm.flush # no AR transaction sugar
+    end
+
+    describe "#call" do
+
+      context "when there are no properties" do
+        it "responds with no offers found" do
+          instance.call
+          output.rewind
+          expect(output.gets).to match "No offers found."
+        end
+      end
+
+      context "when there are properties" do
+        let!(:property) do
+          Wimdu::Property.create type: "apartment", title: "Some title",
+            address: "Something",
+            nightly_rate: 50.0,
+            max_guests: 10,
+            email: "example@example.com",
+            phone_number: "12345678"
+        end
+
+        it "displays the properties" do
+          instance.call
+          output.rewind
+          expect(output.gets).to include "Found 1 offer(s)"
+          expect(output.gets).to include "#{property.slug}: #{property.title}"
+        end
+      end
+
+    end
   end
 end

@@ -13,7 +13,7 @@ end
 
 command :list do |c|
   c.action do
-    puts "Not implemented yet"
+    Wimdu::Commands::List.call
   end
 end
 

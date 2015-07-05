@@ -14,6 +14,8 @@ module Wimdu
         ChangeProperty.call(@property)
 
         say "Property #{property.slug} was created."
+
+        self
       end
 
       def self.call

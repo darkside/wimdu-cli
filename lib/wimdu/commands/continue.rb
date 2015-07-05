@@ -15,7 +15,7 @@ module Wimdu
           ChangeProperty.call(@property)
           say "Property #{property.slug} was updated"
         else
-          say("Error: Couldn't find property with slug #{@slug}")
+          say "Error: Couldn't find property with slug #{@slug}"
         end
         self
       end
