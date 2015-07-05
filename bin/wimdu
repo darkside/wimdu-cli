@@ -1,21 +1,26 @@
-#!/bin/bash
+#!/usr/bin/env ruby
+require_relative "../lib/wimdu-cli"
 
-# This is a stub to make the feature spec pass. You probably don't
-# want to build this in shell script.
+include GLI::App
 
-case $1 in
-    new)
-        echo "Starting with new property ABC1DEF2."
-        echo
-        echo -n "Title: "
-        read title
-        echo -n "Address: "
-        read address
-        ;;
-    "continue")
-        echo "Continuing with property $2."
-        echo
-        echo -n "Address:"
-        read address
-        ;;
-esac
+program_desc 'Wimdu CLI'
+
+command :new do |c|
+  c.action do
+    Wimdu::Commands::Create.call
+  end
+end
+
+command :list do |c|
+  c.action do
+    puts "Not implemented yet"
+  end
+end
+
+command :continue do |c|
+  c.action do |go, o, a|
+    Wimdu::Commands::Continue.call(a.shift)
+  end
+end
+
+exit run(ARGV)

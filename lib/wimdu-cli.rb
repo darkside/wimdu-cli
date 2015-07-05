@@ -3,6 +3,7 @@ require 'ohm/contrib'
 require 'active_support'
 require 'active_support/core_ext'
 require "highline"
+require "gli"
 
 require_relative 'wimdu/property'
 require_relative 'wimdu/commands/base'
