@@ -6,6 +6,15 @@ RSpec.describe Wimdu::Commands::List do
 
   describe "Class Methods" do
 
+    describe ".call" do
+      it "initializes an instance calls #call" do
+        instance = double call: true
+        expect(described_class).to receive(:new).and_return(instance)
+        expect(instance).to receive(:call)
+        described_class.call
+      end
+    end
+
   end
 
   describe "Instance Methods" do

@@ -5,20 +5,25 @@ include GLI::App
 
 program_desc 'Wimdu CLI'
 
+desc 'Create a new offer'
 command :new do |c|
   c.action do
     Wimdu::Commands::Create.call
   end
 end
 
+desc 'List available offers'
 command :list do |c|
   c.action do
     Wimdu::Commands::List.call
   end
 end
 
+desc 'Continue to fill in a previously started offer'
+arg ":slug"
 command :continue do |c|
   c.action do |_, _, args|
+    help_now!('slug is required') if args.empty?
     Wimdu::Commands::Continue.call(args.shift)
   end
 end
