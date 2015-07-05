@@ -1,4 +1,5 @@
 require_relative "support/cli_process"
+require_relative "support/mocked_terminal"
 require 'wimdu-cli'
 require 'pry-byebug'
 

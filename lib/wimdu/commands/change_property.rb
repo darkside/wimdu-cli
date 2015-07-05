@@ -3,6 +3,7 @@ module Wimdu
   module Commands
     class ChangeProperty < Base
       VALID_TYPES = ["holiday home", "apartment", "private_room"]
+
       attr_reader :property
 
       def initialize(property)
