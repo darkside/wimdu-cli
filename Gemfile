@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
-gem "rspec"
 # Data Storage
 gem 'ohm'
 gem 'ohm-contrib'
-
-group :development do
+# To use things like .present? .blank? etc
+gem 'activesupport'
+# CLI builder
+gem 'highline'
+group :development, :test do
+  gem "rspec"
   gem 'pry'
   gem 'pry-byebug'
 end
