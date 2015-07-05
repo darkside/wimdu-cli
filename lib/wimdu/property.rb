@@ -23,6 +23,8 @@ module Wimdu
     attribute :email
     attribute :phone_number
 
+    index :slug
+
     def validate!
       raise "Not Implemented yet"
     end
