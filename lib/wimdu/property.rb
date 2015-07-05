@@ -18,16 +18,14 @@ module Wimdu
     attribute :title
     attribute :slug
     attribute :address
-    attribute :nightly_rate, Type::Decimal
-    attribute :max_guests,   Type::Integer
+    attribute :nightly_rate
+    attribute :max_guests
+    attribute :available,    Type::Boolean
     attribute :email
     attribute :phone_number
 
     index :slug
-
-    def validate!
-      raise "Not Implemented yet"
-    end
+    index :available
 
     protected
 
@@ -35,8 +33,19 @@ module Wimdu
       assign_slug
     end
 
+    def before_save
+      assign_availability
+    end
+
     def assign_slug
       self.slug = rand(36**8).to_s(36)
+    end
+
+    def assign_availability
+      self.available = [:type, :title, :slug, :address, :nightly_rate, :max_guests, :email,
+      :phone_number].all? do |attribute|
+        self.send(attribute).present?
+      end
     end
 
   end

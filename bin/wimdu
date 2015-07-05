@@ -18,8 +18,8 @@ command :list do |c|
 end
 
 command :continue do |c|
-  c.action do |go, o, a|
-    Wimdu::Commands::Continue.call(a.shift)
+  c.action do |_, _, args|
+    Wimdu::Commands::Continue.call(args.shift)
   end
 end
 

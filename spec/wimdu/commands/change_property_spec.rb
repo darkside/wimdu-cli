@@ -30,9 +30,27 @@ RSpec.describe Wimdu::Commands::ChangeProperty do
         expect(instance).to receive(:ask_for_max_guests)
         expect(instance).to receive(:ask_for_email)
         expect(instance).to receive(:ask_for_phone_number)
-        expect(property).to receive(:save)
         response = instance.call
         expect(response).to eq instance
+      end
+
+      context "with some attributes filled in" do
+
+        let(:property) do
+          Wimdu::Property.create title: "My title", type: "apartment",
+            address: "some address"
+        end
+
+        it "doesn't try to ask them again" do
+          expect(instance).to_not receive(:ask_for_title)
+          expect(instance).to_not receive(:ask_for_type)
+          expect(instance).to_not receive(:ask_for_address)
+          expect(instance).to receive(:ask_for_nightly_rate)
+          expect(instance).to receive(:ask_for_max_guests)
+          expect(instance).to receive(:ask_for_email)
+          expect(instance).to receive(:ask_for_phone_number)
+          instance.call
+        end
       end
     end
 
