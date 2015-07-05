@@ -21,10 +21,6 @@ RSpec.describe Wimdu::Commands::List do
 
     let(:instance) { described_class.new }
 
-    before do
-      Ohm.flush # no AR transaction sugar
-    end
-
     describe "#call" do
 
       context "when there are no properties" do

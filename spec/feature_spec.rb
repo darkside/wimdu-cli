@@ -30,8 +30,6 @@ RSpec.describe "Wimdu CLI" do
     let(:cmd)     { "#{exe} list"       }
     let(:process) { CliProcess.new(cmd) }
 
-    before  { Ohm.flush }
-
     it "calls the right command" do
       expect(process).to have_output("No offers found")
       process.kill

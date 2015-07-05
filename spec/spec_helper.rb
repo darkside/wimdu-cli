@@ -12,8 +12,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.before :suite do
-    Ohm.flush
+  config.before do
+    Ohm.flush # So it works like a transaction
   end
 
   config.filter_run :focus

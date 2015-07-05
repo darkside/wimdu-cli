@@ -54,6 +54,8 @@ RSpec.describe Wimdu::Commands::ChangeProperty do
       end
     end
 
+    # TODO: Test validations, for some reason HighLine keeps breaking strangely
+    # when it's not happy with the answer.
     describe "ask_for methods" do
       before do |example|
         input << response << "\n"
