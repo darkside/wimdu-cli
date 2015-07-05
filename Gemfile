@@ -11,6 +11,7 @@ gem 'highline'
 gem 'gli'
 
 group :development, :test do
+  gem 'yard'
   gem "rspec"
   gem 'pry'
   gem 'pry-byebug'

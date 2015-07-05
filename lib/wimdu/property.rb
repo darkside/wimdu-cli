@@ -1,15 +1,6 @@
-# * Every property has the following attributes
-#   * title
-#   * property type, which is one of
-#     * holiday home
-#     * apartment
-#     * private room
-#   * address
-#   * nightly rate in EUR
-#   * max guests
-#   * email
-#   * phone number
 module Wimdu
+  # This is a very simple (and dumb) redis-backed model for saving and
+  # retrieving property records.
   class Property < Ohm::Model
     include Ohm::DataTypes
     include Ohm::Callbacks
@@ -41,6 +32,7 @@ module Wimdu
       self.slug = rand(36**8).to_s(36)
     end
 
+    # Only make this property available if all attributes are filled in.
     def assign_availability
       self.available = [:type, :title, :slug, :address, :nightly_rate, :max_guests, :email,
       :phone_number].all? do |attribute|
